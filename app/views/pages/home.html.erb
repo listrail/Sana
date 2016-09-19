@@ -1,18 +1,21 @@
 
 
-<div class="container-fluid">
+<div class="row">
 	<center>
-  		<div class="col-md-4"><%=image_tag("iPhoneSS.png", :size => "260x430")%> </div>
-
+  	
+	<div class="col-xs-12">	
   		<% if user_signed_in? %>
   			#do something
   		<% else %>
 
-	 		<div class="col-md-4"> 
+ 
 	  		<h2>Your own personal medical assistant. </h2>
-	  		<p> <%= link_to "Sign up today", new_user_registration_path, class: "btn btn-primary btn-lg " %> </p> </div>
-	  		<p> <%= link_to "Log in", new_user_session_path, class: "btn btn-primary btn-lg " %> </p> </div>
+	  		<p> <%= link_to "Sign up today", new_user_registration_path, class: "btn btn-primary btn-lg " %> <%= link_to "Log in", new_user_session_path, class: "btn btn-primary btn-lg " %> </p>
 	  	<% end %>
+
+  	</div>
+
+  	<div class="col-xs-12"><%=image_tag("iPhoneSS.png", :size => "260x430")%> </div>
 
   	</center>
   </div>
