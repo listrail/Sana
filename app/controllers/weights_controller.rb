@@ -55,4 +55,4 @@ class WeightsController < ApplicationController
     def weight_params
       params.require(:weight).permit(:description)
     end
-end
+
