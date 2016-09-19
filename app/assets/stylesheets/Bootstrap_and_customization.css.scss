@@ -1,5 +1,21 @@
-$navbar-default-bg: #27ae60;
-$navbar-default-link-color: white;
+@import url(http://fonts.googleapis.com/css?family=Lato:400,700);
 
+$navbar-default-bg: 		#27ae60;
+$navbar-default-link-color: white;
+$navbar-height: 			65px;
+$font-family-sans-serif: 'Lato', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+$btn-primary-color:			#fff;
+$btn-primary-bg:			#27ae60;
+
+.center {
+	
+	text-align: center;
+}
+
+.navbar-brand {
+	
+	font-weight: bold;
+	font-size: large;
+}
 
 @import "bootstrap";
