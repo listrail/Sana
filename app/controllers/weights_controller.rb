@@ -1,5 +1,6 @@
 class WeightsController < ApplicationController
   before_action :set_weight, only: [:show, :edit, :update, :destroy]
+  before_action :authenticate_user!, only: [:new, :show, :destroy]
 
   def index
     @weights = Weight.all
@@ -10,7 +11,7 @@ class WeightsController < ApplicationController
 
  
   def new
-    @weight = Weight.new
+    @weight = current_user.weights.build
   end
 
   
@@ -19,7 +20,7 @@ class WeightsController < ApplicationController
 
 
   def create
-    @weight = Weight.new(weight_params)
+    @weight = current_user.weights.build(weight_params)
 
       if @weight.save
         redirect_to @weight, notice: 'Weight was successfully created.'
