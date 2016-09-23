@@ -25,7 +25,9 @@ gem 'jbuilder', '~> 2.5'
 gem 'bootstrap-sass'
 gem 'devise', '~>4.2.0'
 gem 'paperclip', github: 'thoughtbot/paperclip'
-
+gem "chartkick"
+gem 'groupdate', '~> 2.1.1'
+gem 'active_median', '~> 0.1.0'
 
 group :development, :test do
 	gem 'sqlite3'

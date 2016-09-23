@@ -4,7 +4,7 @@ class WeightsController < ApplicationController
   before_action :authenticate_user!, only: [:new, :show, :destroy]
 
   def index
-    @weights = Weight.all
+    @weights = Weight.all.order("created_at DESC")
     @user = current_user
   end
 
