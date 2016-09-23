@@ -1,10 +1,11 @@
 class WeightsController < ApplicationController
   before_action :set_weight, only: [:show, :edit, :update, :destroy]
-  before_action :correct_user, only: [:edit, :update, :destroy]
+  before_action :correct_user, only: [:edit, :show, :update, :destroy]
   before_action :authenticate_user!, only: [:new, :show, :destroy]
 
   def index
     @weights = Weight.all
+    @user = current_user
   end
 
   def show

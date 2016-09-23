@@ -11,16 +11,23 @@
     </tr>
   </thead>
 
+  <p> Hello <%= @user.first_name %>. Here is your dashboard: </p>
+  <p> <strong> Your dry weight: </strong> <%= @user.dry_weight %> </p>
+  <p> <strong> Your diuretic: </strong> <%= @user.diuretic_name %> </p>
+  <p> User id: <%= @user.id %> </p>
+
   <tbody>
-    <% @weights.each do |weight| %>
+    <% @weights.map do |weight| %>
       <tr>
+      <% if weight.user_id == @user.id %>
+        <td><%= weight.created_at %></td>
+        <td><%= weight.user_id %></td>
         <td><%= weight.description %></td>
-        <td><%= weight.user.email if weight.user %></td>
         <td><%= link_to 'Show', weight %></td>
-        <% if weight.user = current_user %>
+      
           <td><%= link_to 'Edit', edit_weight_path(weight) %></td>
           <td><%= link_to 'Destroy', weight, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-        <%end %>
+      <%end %>
       </tr>
     <% end %>
   </tbody>
@@ -29,5 +36,5 @@
 <br>
 <% if user_signed_in? %>
 
-  <%= link_to 'New Weight', new_weight_path %>
+  <%= link_to 'New Weight', new_weight_path, class: "btn btn-primary btn-lg " %>
 <% end %>
