@@ -17,13 +17,17 @@
         <td><%= weight.description %></td>
         <td><%= weight.user.email if weight.user %></td>
         <td><%= link_to 'Show', weight %></td>
-        <td><%= link_to 'Edit', edit_weight_path(weight) %></td>
-        <td><%= link_to 'Destroy', weight, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <% if weight.user = current_user %>
+          <td><%= link_to 'Edit', edit_weight_path(weight) %></td>
+          <td><%= link_to 'Destroy', weight, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <%end %>
       </tr>
     <% end %>
   </tbody>
 </table>
 
 <br>
+<% if user_signed_in? %>
 
-<%= link_to 'New Weight', new_weight_path %>
+  <%= link_to 'New Weight', new_weight_path %>
+<% end %>
