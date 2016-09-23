@@ -5,9 +5,12 @@ class WeightsController < ApplicationController
 
   def index
     @weights = Weight.all
+    @users = User.all.last(1)#added from google search
   end
 
   def show
+    
+
   end
 
  

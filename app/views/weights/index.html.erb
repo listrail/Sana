@@ -1,33 +1,48 @@
-<p id="notice"><%= notice %></p>
+<%= render 'pages/home' unless user_signed_in? %>
 
-<h1>Weights</h1>
-
-<table>
-  <thead>
-    <tr>
-      <th>Description</th>
-      <th>User</th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
-
-  <tbody>
-    <% @weights.each do |weight| %>
-      <tr>
-        <td><%= weight.description %></td>
-        <td><%= weight.user.email if weight.user %></td>
-        <td><%= link_to 'Show', weight %></td>
-        <% if weight.user = current_user %>
-          <td><%= link_to 'Edit', edit_weight_path(weight) %></td>
-          <td><%= link_to 'Destroy', weight, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-        <%end %>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
-
-<br>
 <% if user_signed_in? %>
+  <p id="notice"><%= notice %></p>
+  <% if user_signed_in? %>
+  <h1>Weights</h1>
+  <p> Here are a list of all your weights so far </p>
 
-  <%= link_to 'New Weight', new_weight_path %>
+  <% @users.each do |user| %>
+    <p> <strong> Dry weight is: </strong> <%= user.dry_weight %> </p>
+    <p> <strong> Your diuretic is: </strong> <%= user.diuretic_name %> </p>
+    <p> <strong> Your diuretic dose is: </strong>  <%= user.diuretic_dose %> mg </p>
+  <% end %>
+
+
+  <table>
+    <thead>
+      <tr>
+        <th>Description</th>
+        <th>User</th>
+        <th colspan="3"></th>
+      </tr>
+    </thead>
+  
+
+  </div>
+
+    <tbody>
+
+      <% @weights.each do |weight| %>
+        <tr>
+          <td><%= weight.description %></td>
+          <td><%= weight.user.email if weight.user %></td>
+          <td><%= link_to 'Show', weight %></td>
+          <% if weight.user = current_user %>
+            <td><%= link_to 'Edit', edit_weight_path(weight) %></td>
+            <td><%= link_to 'Destroy', weight, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+          <%end %>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+
+  <br>
+
+    <%= link_to 'New Weight', new_weight_path %>
+<% end %>
 <% end %>

@@ -1,7 +1,7 @@
 Rails.application.routes.draw do
   resources :weights
   devise_for :users
-  root "pages#home"
+  root "weights#index"
 
   get "about" => "pages#about"
 
