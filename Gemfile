@@ -24,6 +24,7 @@ gem 'jbuilder', '~> 2.5'
 
 gem 'bootstrap-sass'
 gem 'devise', '~>4.2.0'
+gem 'paperclip', github: 'thoughtbot/paperclip'
 
 
 group :development, :test do
