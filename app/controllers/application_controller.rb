@@ -9,4 +9,6 @@ protected
    devise_parameter_sanitizer.permit(:sign_up, keys: [:first_name, :last_name, :email, :dry_weight, :diuretic_name, :diuretic_dose, :cell_number])
    devise_parameter_sanitizer.permit(:account_update, keys: [:first_name, :last_name, :email, :dry_weight, :diuretic_name, :diuretic_dose, :cell_number])
  end
+
+
 end
