@@ -6,9 +6,13 @@ class WeightsController < ApplicationController
   def index
     @weights = Weight.all.order("created_at DESC")
     @user = current_user
+
+
   end
 
   def show
+    
+
   end
 
  

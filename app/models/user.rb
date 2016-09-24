@@ -8,5 +8,7 @@ class User < ApplicationRecord
 
   has_attached_file :avatar, styles: { medium: "300x300>", thumb: "100x100>" }, default_url: "/images/:style/missing.png"
 
+  validates :first_name, presence: true
+  validates :last_name, presence: true
 
 end

@@ -203,6 +203,7 @@ DEPENDENCIES
   bootstrap-sass
   byebug
   chartkick
+
   coffee-rails (~> 4.2)
   devise (~> 4.2.0)
   groupdate (~> 2.1.1)
